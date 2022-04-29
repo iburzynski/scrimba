@@ -1,0 +1,152 @@
+body {
+  --blue-dark: #1F2937;
+  --blue-light: #3A69D2;
+  --grey-medium: #D5D4D8;
+  --grey-light: #D1D4F4;
+  --grey-dark: #918E9B;
+  max-width: 550px;
+  margin: 0 auto;
+  background-color: #000;
+}
+
+header {
+  text-align: center;
+  background-color: var(--blue-light);
+  color: #FFF;
+  padding: 3.25em;
+}
+
+main {
+  display: grid;
+  align-content: space-between;
+  padding: 2em;
+  background-color: var(--blue-dark);
+  color: #FFF;
+  min-height: 500px;
+}
+
+button {
+  border: none;
+  border-radius: .5rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+p,
+h1 {
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.25rem;
+  margin-bottom: .25em;
+}
+
+.buttons {
+  grid-column-start: span 2;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-between;
+  align-content: start;
+  margin-bottom: 1em;
+}
+
+.add-task {
+  padding: 1em 2em;
+  color: var(--blue-dark);
+  background-color: var(--grey-light);
+  font-size: .8rem;
+  font-weight: 500;
+  border: 2px solid var(--blue-dark);
+}
+
+.add-task:hover {
+  background-color: var(--grey-medium);
+}
+
+.add-task:focus {
+  border: 2px solid #FFF;
+}
+
+.invoice__body,
+.task,
+.invoice__footer {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+}
+
+.invoice__heading {
+  text-transform: uppercase;
+  font-size: .75rem;
+  color: var(--grey-medium);
+  margin: 1em 0;
+}
+
+.invoice__body {
+  display: grid;
+  align-content: start;
+}
+
+.task {
+  grid-column-start: span 2;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1em;
+}
+
+.task__name button {
+  font-size: .65rem;
+  padding-left: 1em;
+  color: var(--grey-medium);
+  background: none;
+}
+
+.task__name button:hover {
+  color: yellow;
+}
+
+.task__price {
+  font-weight: 500;
+}
+
+.task__price span {
+  color: var(--grey-dark);
+}
+
+hr {
+  grid-column-start: span 2;
+  width: 100%;
+}
+
+.invoice__footer {
+  align-self: flex-end;
+}
+
+.invoice__total {
+  font-size: 2.25rem;
+  font-weight: 600;
+  text-align: right;
+}
+
+.invoice__notes {
+  font-size: .75rem;
+}
+
+#send {
+  grid-column-start: span 2;
+  background-color: var(--blue-light);
+  color: #FFF;
+  padding: 1em .5em;
+  font-size: 1rem;
+  margin-top: 1em;
+}
+
+#send:hover {
+  background-color: var(--grey-light);
+  color: var(--blue-light);
+}
+
+.align-right {
+  text-align: right;
+}
