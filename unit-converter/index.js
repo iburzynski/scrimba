@@ -37,7 +37,7 @@ function updateDOM(eqns, units, input) {
   const converted = convertUnits(eqns, number);
   const conversion = genConversionFunc(converted);
   const f = genMeasureFunc(units)(conversion);
-  Object.keys(units).map(m => f(m)).forEach(
+  Object.keys(units).map(f).forEach(
     ({ type, metric, imperial }) => {
       if (type == "temperature") {
         metric = replaceTempLabels(metric);
