@@ -1,0 +1,85 @@
+body,
+input,
+main {
+  text-align: center;
+}
+
+body {
+  --grey-dark: #1f2937;
+  --grey-light: #D2D2D2;
+  margin: 0;
+  color: #fff;
+  background-color: #000;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+input {
+  border: none;
+  font-size: 6rem;
+  font-weight: 800;
+  max-width: 50%;
+  background: none;
+  color: #fff;
+  padding-left: .25em;
+}
+
+header {
+  background-image: linear-gradient(
+    130deg,
+    hsl(226deg 51% 19%) 0%,
+    hsl(225deg 53% 23%) 11%,
+    hsl(224deg 54% 27%) 22%,
+    hsl(224deg 55% 31%) 33%,
+    hsl(224deg 56% 35%) 44%,
+    hsl(223deg 57% 39%) 56%,
+    hsl(223deg 58% 43%) 67%,
+    hsl(223deg 58% 47%) 78%,
+    hsl(223deg 61% 51%) 89%,
+    hsl(223deg 73% 56%) 100%
+  );
+  padding: 3.25em;
+}
+
+h1,
+p {
+  margin: 0 0 1em 0;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr .25fr 1fr;
+  background-color: var(--grey-dark);
+  padding: 2em 3.25em;
+}
+
+p {
+  color: var(--grey-light);
+  margin-bottom: 2em;
+}
+
+p:first-child {
+  margin-top: 1.5em;
+}
+
+.heading {
+  grid-column-start: span 3;
+  font-weight: 600;
+  color: #FFF;
+  border-bottom: .025rem #FFF solid;
+  padding-bottom: .75em;
+  margin-bottom: 1em;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
