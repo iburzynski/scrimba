@@ -1,3 +1,75 @@
+(function init() {
+  const [min, max] = [10, 20];
+  const [cont, pop, more, len, exc, err] = [
+    "pw-container",
+    "populate-btn",
+    "more-btn",
+    "length",
+    "exclude",
+    "error",
+  ].map((e) => document.getElementById(e));
+  len.setAttribute("min", min);
+  len.setAttribute("max", max);
+  len.addEventListener("input", () => {
+    toggleButtons([pop, more], err, min, max, len.value);
+  });
+  pop.addEventListener("click", () => {
+    cont.innerHTML = "";
+    populatePasswords(cont, len, exc, 4);
+    more.classList.remove("hidden");
+  });
+  more.addEventListener("click", () => {
+    populatePasswords(cont, len, exc, 2);
+  });
+})();
+
+function toggleButtons(btns, err, min, max, val) {
+  const valid = isValidLength(min, max, val);
+  btns.forEach((btn) => {
+    if (btn.hasAttribute("disabled") && valid) {
+      btn.removeAttribute("disabled");
+      err.innerText = "";
+    } else if (!valid) {
+      btn.setAttribute("disabled", true);
+      err.innerText = `Password must be ${min} to ${max} characters!`;
+    }
+  });
+  function isValidLength(min, max, val) {
+    return val >= min && val <= max;
+  }
+}
+
+function populatePasswords(container, len, exc, num) {
+  const excChars = exc.value.split("");
+  const pws = genPasswords(num, Number(len.value), excChars);
+  pws.forEach((pw) => {
+    container.append(createPWDiv(pw));
+  });
+}
+
+function createPWDiv(pw) {
+  const pwDiv = document.createElement("div");
+  const pwInput = document.createElement("input");
+
+  pwDiv.className = "password";
+  [
+    ["value", pw],
+    ["disabled", true],
+    ["id", pw],
+  ].forEach((args) => {
+    pwInput.setAttribute(...args);
+  });
+  pwDiv.addEventListener("click", () => {
+    const copyText = document.getElementById(pw);
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+    navigator.clipboard.writeText(copyText.value);
+    alert("Copied Password!");
+  });
+  pwDiv.append(pwInput);
+  return pwDiv;
+}
+
 function genPasswords(num, length, excludeChars = []) {
   const range = makeAsciiRange(excludeChars);
   return [...Array(num).keys()].map((_) => genPassword(length, range));
@@ -21,55 +93,3 @@ function getPassChar(chars) {
     return chars[idx];
   };
 }
-
-function getExcludeChars() {
-  return document.getElementById("exclude").value;
-}
-
-function populatePasswords(container, num) {
-  const [len, exc] = ["length", "exclude"].map(
-    (e) => document.getElementById(e).value
-  );
-  const excChars = exc.split("");
-  const pws = genPasswords(num, Number(len), excChars);
-  pws.forEach(pw => {
-    container.append(createPWDiv(pw))
-  });
-}
-
-function createPWDiv(pw) {
-  const pwDiv = document.createElement("div");
-  const pwInput = document.createElement("input");
-
-  pwDiv.className = "password";
-  pwInput.setAttribute("value", pw);
-  pwInput.setAttribute("disabled", true);
-  pwInput.setAttribute("id", pw);
-  pwDiv.addEventListener("click", () => {
-    const copyText = document.getElementById(pw);
-    copyText.select();
-    copyText.setSelectionRange(0, 99999); /* For mobile devices */
-    navigator.clipboard.writeText(copyText.value);
-    alert("Copied Password!");
-  })
-  pwDiv.append(pwInput);
-  return pwDiv;
-}
-
-function clearPasswords(container) {
-  container.innerHTML = "";
-}
-
-(function init() {
-  const container = document.getElementById("pw-container");
-  const popBtn = document.getElementById("populate-btn");
-  const moreBtn = document.getElementById("more-btn");
-  popBtn.addEventListener("click", () => {
-    clearPasswords(container);
-    populatePasswords(container, 4);
-    moreBtn.classList.remove("hidden");
-  });
-  moreBtn.addEventListener("click", () => {
-    populatePasswords(container, 2);
-  });
-})();

@@ -3,12 +3,13 @@ body {
   --green-dark: #10B981;
   --grey: #D5D4D8;
   --blue-dark: #1F2937;
+  --blue-medium: #273549;
   margin: 4em 2em;
   background: var(--blue-dark);
 }
 
 header, main {
-  max-width: 550px;
+  max-width: 600px;
   margin: auto;
 }
 
@@ -45,7 +46,7 @@ h2 {
 
 .input-col input {
   background: var(--grey);
-  padding: .5em 0;
+  padding: .5em .5em;
   border: none;
   border-radius: .25rem;
   font-size: 1rem;
@@ -74,11 +75,18 @@ label {
   padding: .75em 1.5em;
   font-weight: 500;
   font-size: 1rem;
-  margin: 1em auto;
+  margin: 0 auto 1em auto;
   cursor: pointer;
 }
 
-#populate-btn {
+#populate-btn:disabled,
+#more-btn:disabled {
+  cursor: default;
+  background: var(--blue-medium);
+}
+
+#populate-btn,
+#error {
   grid-column-start: span 2;
 }
 
@@ -86,13 +94,20 @@ label {
   padding: 0 .75em 0 0;
 }
 
+#error {
+  color: red;
+  text-align: center;
+  font-size: .8rem;
+  margin: 0;
+}
+
 #pw-container {
   font-family: monospace;
   letter-spacing: .25rem;
   display: grid;
-  gap: 1em 10%;
+  gap: .5em 5%;
   grid-template-columns: 1fr 1fr;
-  margin-bottom: 3em;
+  margin-bottom: 2em;
 }
 
 #more-btn {
@@ -111,7 +126,7 @@ input {
 .password input {
   cursor: pointer;
   width: 100%;
-  background: #273549;
+  background: var(--blue-medium);
   border: none;
   color: var(--green-light);
   padding: 1em;
