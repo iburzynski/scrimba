@@ -1,0 +1,134 @@
+body {
+  --green-light: #55F991;
+  --green-dark: #10B981;
+  --grey: #D5D4D8;
+  --blue-dark: #1F2937;
+  margin: 4em 2em;
+  background: var(--blue-dark);
+}
+
+header, main {
+  max-width: 550px;
+  margin: auto;
+}
+
+header, .input {
+  margin-bottom: 2em;
+  border-bottom: .1rem solid var(--grey);
+  padding-bottom: 2em;
+}
+
+h1 {
+  color: #FFF;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: .5rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--grey);
+  margin-top: 0;
+}
+
+.accent {
+  color: var(--green-light);
+}
+
+.input {
+  display: grid;
+  gap: 10%;
+  grid-template-columns: 1fr 1fr;
+  padding-bottom: 2em;
+}
+
+.input-col input {
+  background: var(--grey);
+  padding: .5em 0;
+  border: none;
+  border-radius: .25rem;
+  font-size: 1rem;
+  max-width: 50%;
+  margin: auto;
+}
+
+label, input {
+  display: block;
+  text-align: center;
+}
+
+label {
+  color: var(--green-light);
+  font-size: .65rem;
+  margin-bottom: .5rem;
+  letter-spacing: .125rem;
+}
+
+#populate-btn,
+#more-btn {
+  background: var(--green-dark);
+  color: #FFF;
+  border: none;
+  border-radius: .5rem;
+  padding: .75em 1.5em;
+  font-weight: 500;
+  font-size: 1rem;
+  margin: 1em auto;
+  cursor: pointer;
+}
+
+#populate-btn {
+  grid-column-start: span 2;
+}
+
+#populate-btn svg {
+  padding: 0 .75em 0 0;
+}
+
+#pw-container {
+  font-family: monospace;
+  letter-spacing: .25rem;
+  display: grid;
+  gap: 1em 10%;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 3em;
+}
+
+#more-btn {
+  margin: 0 auto;
+  text-align: center;
+}
+
+input {
+  font-family: monospace;
+  letter-spacing: .25rem;
+  line-height: 1.25rem;
+}
+.password {
+  margin: 1em 0;
+}
+.password input {
+  cursor: pointer;
+  width: 100%;
+  background: #273549;
+  border: none;
+  color: var(--green-light);
+  padding: 1em;
+  border-radius: .25rem;
+  text-align: center;
+}
+
+.password input.pw-empty {
+  cursor: default;
+  color: var(--blue-dark);
+  font-weight: 800;
+}
+
+.more {
+  display: grid;
+}
+
+.hidden {
+  display: none;
+}

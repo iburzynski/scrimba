@@ -10,6 +10,7 @@
     celsius: (f) => (f - 32) * (5 / 9),
     fahrenheit: (c) => c * (9 / 5) + 32,
   });
+
   const units = Object.freeze({
     temperature: {
       metric: ["celsius", "celsius"],
