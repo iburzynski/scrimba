@@ -105,7 +105,7 @@ label {
   font-family: monospace;
   letter-spacing: .25rem;
   display: grid;
-  gap: .5em 5%;
+  gap: .5em 10%;
   grid-template-columns: 1fr 1fr;
   margin-bottom: 2em;
 }
