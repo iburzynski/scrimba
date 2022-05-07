@@ -1,0 +1,84 @@
+body {
+  --blue-med: #3D4B60;
+  --blue-dark: #1F2937;
+  box-sizing: border-box;
+  margin: 10vh auto 0 auto;
+  max-width: 600px;
+  background: #000;
+}
+
+header,
+main,
+#scheme-mode,
+#get-scheme,
+.color-label {
+  color: #fff;
+  font-weight: 600;
+}
+
+header,
+main,
+#scheme-mode {
+  background: var(--blue-dark);
+}
+
+header {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5em;
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+}
+
+main {
+  height: 70vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 90% 10%;
+  border-bottom-left-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+}
+
+#scheme-seed {
+  min-height: 50%;
+}
+
+#scheme-mode,
+#get-scheme {
+  border-radius: .5rem;
+  padding: 1em;
+}
+
+#scheme-mode {
+  border: 1px solid #D1D5DB;
+  min-width: 50%;
+}
+
+#scheme-mode:focus,
+.color-label:focus {
+  outline: none;
+}
+
+#get-scheme {
+  background: var(--blue-med);
+  border: none;
+  box-shadow: 0 1px 2px 0 #000;
+  text-shadow: 1px 1px #000;
+}
+
+.color-label,
+.color-label:active,
+#get-scheme {
+  cursor: pointer;
+}
+
+.color-label {
+  align-self: center;
+  width: 100%;
+  text-align: center;
+  background: none;
+  border: none;
+  padding: 1.5em;
+}
